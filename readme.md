@@ -7,6 +7,44 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+## Installation
+To install the project you can use composer
+
+<pre>
+composer create-project joselfonseca/laravel-api new-api
+Then run composer install again and the error should be gone.
+</pre>
+
+Modify the .env file to suit your needs
+
+<pre>
+APP_ENV=local
+APP_DEBUG=true
+APP_KEY=base64:JqyMTmt5qr1CW6BH+GG+4iKfU4RiNjZTLy33TdTT7+4=
+
+API_STANDARDS_TREE=vnd
+API_SUBTYPE=api
+API_PREFIX=api
+API_VERSION=v1
+API_DEBUG=true
+
+DB_HOST=localhost
+DB_DATABASE=laravel_api
+DB_USERNAME=homestead
+DB_PASSWORD=secret
+
+CACHE_DRIVER=file
+SESSION_DRIVER=file
+QUEUE_DRIVER=sync
+
+MAIL_DRIVER=smtp
+MAIL_HOST=mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+</pre>
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
