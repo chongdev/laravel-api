@@ -14,6 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
+        sleep(3);
         return response()->json(Product::all(), 200);
     }
 
@@ -35,6 +36,11 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        if( $request->user()->tokenCan('place-orders') ){
+
+        }
+
+
         $request->validate(['name' => 'required']);
         return response()->json(Product::create($request->all()), 200);
     }

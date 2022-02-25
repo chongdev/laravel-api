@@ -26,10 +26,16 @@ class AuthController extends Controller
         }
 
         $user = $request->user();
+
+        // // Creating a token with scopes...
+        $scopes = ['place-orders'];
         $tokenResult = $user->createToken('Personal Access Token');
+        // $accessToken = $user->createToken('My Token', $scopes)->accessToken;
         $token = $tokenResult->token;
 
-        $token->expires_at = Carbon::now()->addWeeks(1);
+        // $token->expires_at = Carbon::now()->addWeeks(1);
+        $token->expires_at = Carbon::now()->addDays(15);
+        //$token->scopes($scopes);
         $token->save();
         // $accessToken = Auth::user()->createToken('authToken')->accessToken();
 

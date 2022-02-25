@@ -10,4 +10,9 @@ Route::group([
 ], function () {
     Route::get('auth/logout', 'API\v1\AuthController@logout');
     Route::get('auth/user', 'API\v1\AuthController@user');
+
+    # product
+    // Route::apiResource('product', 'ProductController');
+    Route::get('product', 'ProductController@index');
+    Route::post('product', 'ProductController@store');
 });
