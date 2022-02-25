@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\Member;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class AuthController extends Controller
+class MemberAuthController extends Controller
 {
     public function register(Request $request)
     {
-        $user = User::create([
+        $user = Member::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
@@ -24,10 +24,9 @@ class AuthController extends Controller
         ], 200);
     }
 
-
     public function login(Request $request)
     {
-        $user = User::where('email', $request->email)->first();
+        $user = Member::where('email', $request->email)->first();
 
         if (!$user || !Hash::check($request->password, $user->password)) {
             return response()->json(['message'=> 'Bad creds'], 401);
