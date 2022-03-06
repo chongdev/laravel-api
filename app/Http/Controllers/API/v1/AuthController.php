@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API\v1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -79,7 +80,8 @@ class AuthController extends Controller
     }
 
     public function user(Request $request){
-        return response()->json($request->user());
+        return new UserResource($request->user()); 
+        // response()->json($request->user());
     }
 
     private function getTokenAndRefreshToken(OClient $oClient, $email, $password) { 

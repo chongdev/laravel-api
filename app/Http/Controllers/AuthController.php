@@ -16,11 +16,11 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        $token = $user->createToken('myapptoken')->plainTextToken;
+        // $token = $user->createToken('myapptoken')->plainTextToken;
 
         return response()->json([
             'user' => $user,
-            'token' => $token,
+            // 'token' => $token,
         ], 200);
     }
 
